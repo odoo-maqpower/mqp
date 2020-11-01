@@ -148,8 +148,12 @@
                             <!-- # PROVEEDOR -->
                             <!--<span t-field="o.invoice_origin"/>-->
                         </td>
-                        <td class="text-left" style="border:1px solid;" name="reference">
-                            <span t-field="o.ref"/>
+                        <td class="text-left" style="border:1px solid;">
+                            <div class="col-auto mw-100 mb-2" t-if="o.ref" name="reference">
+                                <!--<strong>Reference:</strong>-->
+                                <span class="m-0" t-field="o.ref"/>
+                            </div>
+                            <!--<span t-field="o.ref"/>-->
                         </td>
                         <td class="text-left" style="border:1px solid;">
                             <span t-field="o.invoice_user_id.name"/>
