@@ -27,7 +27,7 @@
     'maintainer': 'OgSistemas',
     'website': 'http://www.ogsistemas.com',
     'license': 'AGPL-3',
-    'category': 'Extra Tools',
+    'category': 'Hidden',
     'summary': 'Formato de factura integrado a FEL mexico enterprise',
     'depends': ['base'],
     'data': [
