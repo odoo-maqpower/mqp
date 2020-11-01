@@ -135,20 +135,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <td class="text-left" style="border:1px solid;">
+                        <td class="text-left" style="border:1px solid;" name="customer_code">
                             <span t-field="o.partner_id.ref"/>
                         </td>
-                        <td class="text-left" style="border:1px solid;">
+                        <td class="text-left" style="border:1px solid;" name="origin">
                             <span t-field="o.invoice_origin"/>
                         </td>
-                        <td class="text-left" style="border:1px solid;">
+                        <td class="text-left" style="border:1px solid;" name="due_date">
                             <span t-field="o.invoice_date_due"/>
                         </td>
                         <td class="text-left" style="border:1px solid;">
                             <!-- # PROVEEDOR -->
                             <!--<span t-field="o.invoice_origin"/>-->
                         </td>
-                        <td class="text-left" style="border:1px solid;">
+                        <td class="text-left" style="border:1px solid;" name="reference">
                             <span t-field="o.ref"/>
                         </td>
                         <td class="text-left" style="border:1px solid;">
