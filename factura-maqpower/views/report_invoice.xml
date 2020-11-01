@@ -176,7 +176,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="text-center" style="border:1px solid;">
+                        <td colspan="2" class="text-center" style="border:1px solid;">
                             VENCE <span t-field="o.invoice_date_due"/>
                         </td>                    
                         <td colspan="3" class="text-center" style="border:1px solid;">
