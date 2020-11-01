@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <template id="external_layout_boxed_header_inherited" inherit_id="web.external_layout_boxed">
+        <template id="external_layout_header_inherited" inherit_id="web.external_layout_standard">
             <xpath expr="//div[@class='header']" position="replace">
                 <div class="header">
                     <div class="o_boxed_header">
@@ -11,9 +11,8 @@
                             </div>
                             <div class="col-6 text-right mb4">
                                 <h2 class="mt0" t-field="company.report_header"/>
-                                <div name="company_address" class="mb4">
-                                    <address t-if="o and 'journal_id' in o.fields_get()" t-field="o.journal_id.direccion" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
-                                    <span t-else="" class="company_address" t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                                <div name="company_address" style="text-align: right;" class="mb4">
+                                    <div t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
                                     <div t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></div>
                                 </div>
                             </div>

@@ -11,6 +11,7 @@
     'depends': ['base', 'l10n_mx_edi'],
     'data': [
         'views/report_invoice.xml',
+        'views/report_header.xml',
     ],
     'installable': True,
     'license': 'OEEL-1',

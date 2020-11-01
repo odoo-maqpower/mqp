@@ -18,12 +18,12 @@
                     <t t-set="tfd_original_string" t-value="o._get_l10n_mx_edi_cadena()"/>
                     <t t-set="external" t-value="o.l10n_mx_edi_get_et_etree(xml)"/>
                 </t>
-                <h2>
-                    <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Invoice</span>
-                    <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft Invoice</span>
-                    <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice</span>
-                    <span t-if="o.type == 'out_refund'">Credit Note</span>
-                    <span t-if="o.type == 'in_refund'">Vendor Credit Note</span>
+                <h2 style="text-align: right;">
+                    <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Factura</span>
+                    <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Factura Borrador</span>
+                    <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Factura Cancelada</span>
+                    <span t-if="o.type == 'out_refund'">Nota de Crédito</span>
+                    <span t-if="o.type == 'in_refund'">Vendor Nota de Crédito</span>
                     <span t-if="o.type == 'in_invoice'">Vendor Bill</span>
                     <span t-if="o.name != '/'" t-field="o.name"/>
                 </h2>
