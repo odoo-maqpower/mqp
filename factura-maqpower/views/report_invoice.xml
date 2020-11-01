@@ -34,7 +34,7 @@
                         <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)"
                             style="max-height: 130px;max-width: 130px;" />
                     </div>-->
-                        <div class="col-4" >
+                        <div class="col-5" >
                             <div>
                                 <strong>Lugar de expedición: </strong>
                                 <span t-field="o.company_id.partner_id.zip"/>
@@ -49,9 +49,10 @@
                                 </t>
                             </t>
                         </div>
-                        <div class="col-4">
+                        <div class="col-5"></div>
+                        <div class="col-5">
                             <div>
-                                <strong>FOLIO SAT</strong>
+                                <strong>FOLIO SAT</strong><br/>
                                 <span t-esc="tfd.get('UUID')"/>
                             </div>
 
@@ -69,11 +70,11 @@
                         </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="padding-top: 10px;">>
                     <div class="col-4">
                         <div>
                             FACTURAR
-                        </div>
+                        </div><br/>
                         <div>
                             <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
                             R.F.C. <span t-if="o.partner_id.vat" t-field="o.partner_id.vat"/>
