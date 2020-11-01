@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <template id="report_invoice_document_fel" inherit_id="account.report_invoice_document">
+        <template id="report_invoice_document_fel" inherit_id="account.report_invoice_document_mx_mq">
             <xpath expr="//address" position="replace">
             </xpath>
             <xpath expr="//div[@class='page']" position="replace">
