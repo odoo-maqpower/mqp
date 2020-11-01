@@ -28,7 +28,7 @@
                     <span t-if="o.name != '/'" t-field="o.name"/>
                 </h2>
                 <!-- Información de la factura -->
-                <div class="row"  >
+                <div class="row" style="font-size: 10px;" >
                     <!--
                     <div class="col-4">
                         <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)"
@@ -64,7 +64,7 @@
                                 <strong>Fecha certificación: </strong>
                                 <span t-esc="tfd.get('FechaTimbrado', '').replace('T', ' ')"/>
                             </div>
-                            <div cass="abs-center">
+                            <div style="text-align: right;">
                                 <strong>Version CFDI 3.3</strong>
                             </div>
                         </div>
@@ -73,7 +73,17 @@
                 <div class="row" style="padding-top: 10px;">
                     <div class="col-4">
                         <div>
-                            FACTURAR
+                            <h3>FACTURAR</h3>
+                        </div>
+                        <div style="padding-top: 10px;">
+                            <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                            R.F.C. <span t-if="o.partner_id.vat" t-field="o.partner_id.vat"/>
+                        </div>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div>
+                            <h3>EMBARCAR</h3>
                         </div>
                         <div style="padding-top: 10px;">
                             <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
