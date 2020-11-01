@@ -2,8 +2,6 @@
 <odoo>
     <data>
         <template id="report_invoice_document_fel" inherit_id="l10n_mx_edi.report_invoice_document_mx">
-            <xpath expr="//address" position="replace">
-            </xpath>
             <xpath expr="//div[@class='page']" position="replace">
                 <h2>
                     <span t-if="o.type == 'out_invoice' and o.state == 'posted'">Invoice</span>
