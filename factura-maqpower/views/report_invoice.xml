@@ -64,6 +64,14 @@
                                 <strong>Fecha certificación: </strong>
                                 <span t-esc="tfd.get('FechaTimbrado', '').replace('T', ' ')"/>
                             </div>
+                            <div>
+                                <strong>Certificado Emisor: </strong>
+                                <span t-esc="xml.get('noCertificado', xml.get('NoCertificado'))"/>                            
+                            </div>
+                            <div>
+                                <strong>Certificado SAT:</strong> 
+                                <span t-esc="tfd.get('NoCertificadoSAT')"/>                            
+                            </div>
                             <div style="text-align: right;">
                                 <strong>Version CFDI 3.3</strong>
                             </div>
@@ -114,7 +122,43 @@
                         <p class="m-0" t-field="o.ref"/>
                     </div>
                 </div>
-
+				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;font-size: 12px;">
+                    <thead>
+                        <tr style="border:2px solid;">
+                            <th style="border:1px solid;">CLIENTE</th>
+                            <th style="border:1px solid;">SU PEDIDO</th>
+                            <th style="border:1px solid;">DE FECHA</th>
+                            <th style="border:1px solid;">#PROVEEDOR</th>
+                            <th style="border:1px solid;">NTRA. REFERENCIA</th>
+                            <th style="border:1px solid;">AGENTE</th>
+                            <th style="border:1px solid;">FECHA FACTURA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td class="text-left" style="border:1px solid;">
+                            <span t-field="o.partner_id.ref"/>
+                        </td>
+                        <td class="text-left" style="border:1px solid;">
+                            <span t-field="o.invoice_origin"/>
+                        </td>
+                        <td class="text-left" style="border:1px solid;">
+                            <span t-field="o.invoice_date_due"/>
+                        </td>
+                        <td class="text-left" style="border:1px solid;">
+                            <!-- # PROVEEDOR -->
+                            <!--<span t-field="o.invoice_origin"/>-->
+                        </td>
+                        <td class="text-left" style="border:1px solid;">
+                            <span t-field="o.ref"/>
+                        </td>
+                        <td class="text-left" style="border:1px solid;">
+                            <span t-field="o.invoice_user_id.name"/>
+                        </td>
+                        <td class="text-left" style="border:1px solid;">
+                            <span t-field="o.invoice_date_due"/>
+                        </td>
+                    </tbody>
+                </table>
                 <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
                 <!--<table class="table table-sm o_main_table" name="invoice_line_table">-->
 				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;font-size: 12px;">
@@ -253,6 +297,50 @@
                 <p t-if="o.fiscal_position_id.note" name="note">
                     <span t-field="o.fiscal_position_id.note"/>
                 </p>-->
+                <div class="row" style="font-size: 12px;" >
+                    <div class="col-4" >
+                        <div>
+                            <strong>Método de pago: </strong>
+                            <span style="font-size: 10px;" t-field="o.company_id.partner_id.zip"/>
+                        </div>
+                        <t t-if="o.l10n_mx_edi_cfdi_uuid">
+                            <t t-if="o.l10n_mx_edi_payment_method_id">
+                                <div t-att-class="o_grid_layout">
+                                    <strong>Método de pago:</strong>
+                                    <p style="font-size: 10px;" t-esc="' - '.join([o.l10n_mx_edi_payment_method_id.code, o.l10n_mx_edi_payment_method_id.name])"/>
+                                </div>
+                            </t>
+                            <div t-att-class="o_grid_layout">
+                                <strong>Forma de pago:</strong>
+                                <p style="font-size: 10px;" t-esc="xml.get('formaDePago', xml.get('MetodoPago'))"/>
+                            </div>
+                            <t t-if="o.l10n_mx_edi_cfdi_uuid">
+                                <t t-if="xml.Receptor.get('UsoCFDI', False)">
+                                    <t t-set="usage" t-value="xml.Receptor.get('UsoCFDI')"/>
+                                    <div name="usage" t-att-class="o_grid_layout">
+                                        <strong>Uso CFDI:</strong>
+                                        <span style="font-size: 10px;" t-esc="usage"/> - <span style="font-size: 10px;" t-field="o.l10n_mx_edi_usage"/>
+                                    </div>
+                                </t>
+                            </t>
+                            <div t-if="o.invoice_payment_term_id" name="payment_term">
+                                <strong>Condiciones de pago: </strong>
+                                <span style="font-size: 10px;" t-field="o.invoice_payment_term_id.note"/>
+                            </div>
+                            <div t-if="xml.Emisor.get('RegimenFiscal', '')">
+                                <strong>Régimen fiscal por omisión: </strong>
+                                <span style="font-size: 10px;" t-esc="xml.Emisor.get('RegimenFiscal', '')"/>
+                            </div>
+                            <div t-if="o.fiscal_position_id.note">
+                                <strong>Observaciones: </strong>
+                                <span style="font-size: 10px;" t-field="o.fiscal_position_id.note"/>
+                            </div>
+                            <div>
+                                Este documento es una representación impresa de un CFDI
+                            </div>
+                        </t>
+                    </div>
+                </div>
                 <t t-if="o.l10n_mx_edi_cfdi_uuid">
                     <div class="row" id='complement'>
                         <div class="barcode col-3">
