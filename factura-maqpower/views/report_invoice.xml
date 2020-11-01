@@ -163,6 +163,30 @@
                         </td>
                     </tbody>
                 </table>
+				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;font-size: 12px;">
+                    <tr>
+                        <td colspan="2" class="text-center" style="border:1px solid;">
+                        
+                        </td>
+                        <td colspan="3" class="text-center" style="border:1px solid;">
+                            VIA DE EMBARQUE    
+                        </td>
+                        <td colspan="2" class="text-center" style="border:1px solid;">
+                            INSTRUCCIONES ESPECIALES
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center" style="border:1px solid;">
+                            VENCE <span t-field="o.invoice_date_due"/>
+                        </td>                    
+                        <td colspan="3" class="text-center" style="border:1px solid;">
+                            NUESTRO PRODUCTO
+                        </td>
+                        <td colspan="2" class="text-center" style="border:1px solid;">
+                            Atención a: 
+                        </td>
+                    </tr>
+                </table>
                 <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
                 <!--<table class="table table-sm o_main_table" name="invoice_line_table">-->
 				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;font-size: 12px;">
