@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!--
                 <div id="informations" class="row mt32 mb32">
                     <div class="col-auto mw-100 mb-2" t-if="o.invoice_date" name="invoice_date">
                         <strong>Invoice Date:</strong>
@@ -121,7 +121,7 @@
                         <strong>Reference:</strong>
                         <p class="m-0" t-field="o.ref"/>
                     </div>
-                </div>
+                </div>-->
 				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;font-size: 12px;">
                     <thead>
                         <tr style="border:2px solid;">
@@ -298,21 +298,17 @@
                     <span t-field="o.fiscal_position_id.note"/>
                 </p>-->
                 <div class="row" style="font-size: 12px;" >
-                    <div class="col-4" >
-                        <div>
-                            <strong>Método de pago: </strong>
-                            <span style="font-size: 10px;" t-field="o.company_id.partner_id.zip"/>
-                        </div>
+                    <div class="col-6" >
                         <t t-if="o.l10n_mx_edi_cfdi_uuid">
                             <t t-if="o.l10n_mx_edi_payment_method_id">
                                 <div t-att-class="o_grid_layout">
                                     <strong>Método de pago:</strong>
-                                    <p style="font-size: 10px;" t-esc="' - '.join([o.l10n_mx_edi_payment_method_id.code, o.l10n_mx_edi_payment_method_id.name])"/>
+                                    <span style="font-size: 10px;" t-esc="' - '.join([o.l10n_mx_edi_payment_method_id.code, o.l10n_mx_edi_payment_method_id.name])"/>
                                 </div>
                             </t>
                             <div t-att-class="o_grid_layout">
                                 <strong>Forma de pago:</strong>
-                                <p style="font-size: 10px;" t-esc="xml.get('formaDePago', xml.get('MetodoPago'))"/>
+                                <span style="font-size: 10px;" t-esc="xml.get('formaDePago', xml.get('MetodoPago'))"/>
                             </div>
                             <t t-if="o.l10n_mx_edi_cfdi_uuid">
                                 <t t-if="xml.Receptor.get('UsoCFDI', False)">
@@ -336,7 +332,7 @@
                                 <span style="font-size: 10px;" t-field="o.fiscal_position_id.note"/>
                             </div>
                             <div>
-                                Este documento es una representación impresa de un CFDI
+                                <strong>Este documento es una representación impresa de un CFDI</strong>
                             </div>
                         </t>
                     </div>
@@ -380,6 +376,7 @@
                             <div class="digital-stamp">
                                 <span>Extra Info</span>
                             </div>
+                            <!--
                             <div class="digital-stamp-content">
                                 <span>Emitter certificate:</span> <span t-esc="xml.get('noCertificado', xml.get('NoCertificado'))"/>
                                 <span> | SAT Certificate:</span> <span t-esc="tfd.get('NoCertificadoSAT')"/>
@@ -391,7 +388,7 @@
                             </div>
                             <div class="digital-stamp-content text-center">
                                 <strong>Este documento es una representación impresa de un CFDI</strong>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </t>
