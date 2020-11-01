@@ -107,22 +107,23 @@
                 <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
                 <!--<table class="table table-sm o_main_table" name="invoice_line_table">-->
 				<div class="row" style="border:solid 2px black;font-size:15px;">
-				<table class="borderless" cellspacing="0" style="width:100%;border:1px;border-collapse:separate;border-spacing: 2px;">
+				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 2px;">
                     <thead>
-                        <tr>
+                        <tr style="border:2px solid;">
                             <!-- TODO: remove in master -->
-                            <th name="th_quantity" class="text-left"><span>Quantity</span></th>
+                            <th name="th_quantity" style="border:2px solid;" class="text-left"><strong><span>CANT.</span></strong></th>
+                            <th name="th_quantity" class="text-left"><strong><span>CLAVE</span></strong></th>
                             <t t-set="colspan" t-value="6"/>
-                            <th name="th_description" class="text-left"><span>Description</span></th>
+                            <th name="th_description" class="text-left"><strong><span>Description</span></strong></th>
                             <!-- TODO: remove in master -->
-                            <th name="th_source" class="d-none text-left" t-if="0"><span>Source Document</span></th>
-                            <th name="th_priceunit" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Unit Price</span></th>
+                            <th name="th_source" class="d-none text-left" t-if="0"><strong><span>Source Document</span></strong></th>
+                            <th name="th_priceunit" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><strong><span>Unit Price</span></strong></th>
                             <th name="th_price_unit" t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                <span>Disc.%</span>
+                                <strong><span>Disc.%</span></strong>
                                 <!-- TODO: remove in master -->
                                 <t t-set="colspan" t-value="colspan+1"/>
                             </th>
-                            <th name="th_taxes" t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Taxes</span></th>
+                            <th name="th_taxes" t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><strong><span>Taxes</span></strong></th>
                             <th name="th_subtotal" class="text-right">
                                 <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
                                 <span groups="account.group_show_line_subtotals_tax_included">Total Price</span>
