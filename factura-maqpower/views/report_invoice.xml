@@ -28,7 +28,7 @@
                     <span t-if="o.name != '/'" t-field="o.name"/>
                 </h2>
                 <!-- Información de la factura -->
-                <div class="row" style="font-size: 10px;" >
+                <div class="row" style="font-size: 12px;" >
                     <!--
                     <div class="col-4">
                         <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)"
@@ -70,10 +70,10 @@
                         </div>
                 </div>
 
-                <div class="row" style="padding-top: 10px;">
+                <div class="row" style="padding-top: 10px; font-size: 12px;">
                     <div class="col-4">
                         <div>
-                            <h3>FACTURAR</h3>
+                            <strong>FACTURAR</strong>
                         </div>
                         <div style="padding-top: 10px;">
                             <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
@@ -83,7 +83,7 @@
                     <div class="col-4"></div>
                     <div class="col-4">
                         <div>
-                            <h3>EMBARCAR</h3>
+                            <strong>EMBARCAR</strong>
                         </div>
                         <div style="padding-top: 10px;">
                             <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
@@ -117,7 +117,7 @@
 
                 <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
                 <!--<table class="table table-sm o_main_table" name="invoice_line_table">-->
-				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;">
+				<table class="borderless" cellspacing="0" style="width:100%;border:2px;border-collapse:separate;border-spacing: 0px;font-size: 12px;">
                     <thead style="border:2px solid;">
                         <tr style="border:2px solid;">
                             <!-- TODO: remove in master -->
@@ -200,7 +200,7 @@
                         </t>
                     </tbody>
                 </table>
-                <div class="clearfix">
+                <div class="clearfix" style="font-size: 12px;">
                     <div id="total" class="row">
                         <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
                             <table class="table table-sm" style="page-break-inside: avoid;">
