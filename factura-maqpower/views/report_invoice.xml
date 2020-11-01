@@ -2,6 +2,8 @@
 <odoo>
     <data>
         <template id="report_invoice_document_fel" inherit_id="l10n_mx_edi.report_invoice_document_mx">
+            <xpath expr="//address" position="replace">
+            </xpath>
             <xpath expr="//div[@class='page']" position="replace">
                 <t t-if="not o.l10n_mx_edi_cfdi_uuid and o.l10n_mx_edi_is_required()">
                     <!-- due to HTML preview for device responsive -->
@@ -25,11 +27,13 @@
                     <span t-if="o.type == 'in_invoice'">Vendor Bill</span>
                     <span t-if="o.name != '/'" t-field="o.name"/>
                 </h2>
+                <!-- Información de la factura -->
                 <div class="row"  >
+                    <!--
                     <div class="col-4">
                         <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)"
                             style="max-height: 130px;max-width: 130px;" />
-                    </div>
+                    </div>-->
                         <div class="col-4" >
                             <div>
                                 <strong>Lugar de expedición: </strong>
@@ -63,6 +67,18 @@
                                 <strong>Version CFDI 3.3</strong>
                             </div>
                         </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <div>
+                            FACTURAR
+                        </div>
+                        <div>
+                            <address t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                            R.F.C. <span t-if="o.partner_id.vat" t-field="o.partner_id.vat"/>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="informations" class="row mt32 mb32">
