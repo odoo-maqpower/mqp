@@ -72,6 +72,10 @@
                                 <strong>Certificado SAT:</strong> 
                                 <span t-esc="tfd.get('NoCertificadoSAT')"/>                            
                             </div>
+                            <div t-if="o.l10n_mx_edi_origin">
+                                <strong>Certificado de Origen: </strong>
+                                <span t-field="o.l10n_mx_edi_origin"/>
+                            </div>
                             <div style="text-align: right;">
                                 <strong>Version CFDI 3.3</strong>
                             </div>
