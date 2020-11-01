@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <template id="external_layout_header_inherited" inherit_id="web.external_layout_standard">
-            <xpath expr="//div[@class='header']" position="replace">
+            <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']" position="replace">
                 <div class="header">
                     <div class="o_boxed_header">
                         <div class="row mb8">
