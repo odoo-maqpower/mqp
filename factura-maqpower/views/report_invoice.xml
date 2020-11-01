@@ -50,13 +50,13 @@
                                 <strong>FOLIO SAT</strong>
                                 <span t-esc="tfd.get('UUID')"/>
                             </div>
-                            <div>
+
+                            <div t-if="o.invoice_date" name="invoice_date">
                                 <strong>Fecha emisión: </strong>
-                                <span t-field="o.fecha_emision" />
+                                <span t-field="o.invoice_date" />
                             </div>
-                            <div>
+                            <div t-if="tfd.get('FechaTimbrado', '').replace('T', ' ')" name="invoice_timbrado">
                                 <strong>Fecha certificación: </strong>
-                                <span t-field="o.fecha_emision" />
                                 <span t-esc="tfd.get('FechaTimbrado', '').replace('T', ' ')"/>
                             </div>
                             <div>
