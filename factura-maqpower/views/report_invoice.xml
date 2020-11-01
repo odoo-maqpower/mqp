@@ -34,7 +34,7 @@
                         <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)"
                             style="max-height: 130px;max-width: 130px;" />
                     </div>-->
-                        <div class="col-5" >
+                        <div class="col-4" >
                             <div>
                                 <strong>Lugar de expedición: </strong>
                                 <span t-field="o.company_id.partner_id.zip"/>
@@ -49,7 +49,8 @@
                                 </t>
                             </t>
                         </div>
-                        <div class="col-5">
+                        <div class="col-4"></div>
+                        <div class="col-4">
                             <div class="abs-center" style="text-align: center;">
                                 <strong>FOLIO SAT</strong><br/>
                                 <span t-esc="tfd.get('UUID')"/>
