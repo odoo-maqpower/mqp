@@ -44,7 +44,13 @@
                                     <t t-set="usage" t-value="xml.Receptor.get('UsoCFDI')"/>
                                     <div name="usage" t-att-class="o_grid_layout">
                                         <strong>Tipo de Comprobante:</strong>
-                                        <span t-esc="usage"/> - <span t-field="o.l10n_mx_edi_usage"/>
+                                        <span t-if="o.type == 'out_invoice' and o.state == 'posted'">I - Ingreso</span>
+                                        <span t-if="o.type == 'out_invoice' and o.state == 'draft'">I - Ingreso</span>
+                                        <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">I - Ingreso</span>
+                                        <span t-if="o.type == 'out_refund'">E - Egreso</span>
+                                        <span t-if="o.type == 'in_refund'">E - Egreso</span>
+                                        <span t-if="o.type == 'in_invoice'">E - Egreso</span>
+                                        <!--<span t-esc="usage"/> - <span t-field="o.l10n_mx_edi_usage"/>-->
                                     </div>
                                 </t>
                             </t>
