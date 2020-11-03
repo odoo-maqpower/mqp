@@ -4,6 +4,7 @@
         <template id="report_invoice_document_fel" inherit_id="l10n_mx_edi.report_invoice_document_mx">
             <xpath expr="//address" position="replace">
             </xpath>
+            <xpath expr="//t[@t-set='address']"  position="replace"></xpath>
             <xpath expr="//div[@class='page']" position="replace">
                 <t t-if="not o.l10n_mx_edi_cfdi_uuid and o.l10n_mx_edi_is_required()">
                     <!-- due to HTML preview for device responsive -->
