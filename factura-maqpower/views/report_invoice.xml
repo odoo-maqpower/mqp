@@ -158,8 +158,8 @@
                             </div>
                             <!--<span t-field="o.invoice_origin"/>-->
                         </td>
-                        <td class="text-left" style="border:1px solid;" name="due_date">
-                            <span t-field="o.invoice_date_due"/>
+                        <td class="text-left" style="border:1px solid;" name="date">
+                            <span t-field="o.invoice_date"/>
                         </td>
                         <td class="text-left" style="border:1px solid;">
                             <!-- # PROVEEDOR -->
