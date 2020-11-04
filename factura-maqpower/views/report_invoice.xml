@@ -174,7 +174,7 @@
                             <span t-field="o.invoice_user_id.name"/>
                         </td>
                         <td class="text-left" style="border:1px solid;">
-                            <span t-field="o.invoice_date_due"/>
+                            <span t-field="o.invoice_date"/>
                         </td>
                     </tbody>
                 </table>
